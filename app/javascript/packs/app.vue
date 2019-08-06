@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <div class="wrapper">
+      <h1>ActiveTest</h1>
+      <div class="content-wrapper">
+        <div class="main-content">
+          <router-view />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -18,5 +25,11 @@ export default {
 p {
   font-size: 2em;
   text-align: center;
+}
+h1{
+
+}
+.content-wrapper{
+  width: 80%;
 }
 </style>
