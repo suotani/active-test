@@ -31,5 +31,6 @@ h1{
 }
 .content-wrapper{
   width: 80%;
+  margin: auto;
 }
 </style>
