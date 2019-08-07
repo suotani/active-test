@@ -12,7 +12,7 @@
                 
             </div> 
                 <label>回答</label>
-                <input type="text" v-model="question.answer">
+                <textarea v-model="question.answer"></textarea>
             </div>
             <button type="button" v-on:click="onSubmit">登録</button>
         </form>
@@ -57,6 +57,6 @@ import axios from 'axios'
 <style scoped>
     textarea{
         width: 100%;
-        height: 100px;
+        height: 70px;
     }
 </style>
