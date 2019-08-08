@@ -1,8 +1,7 @@
 <template>
   <div>
     <p><router-link :to="{name: 'top'}">一覧に戻る</router-link></p>
-    <h2>{{test_name}}</h2>
-    <button type="button" v-on:click="onShuffle">シャッフル出題</button>
+    <h2>テスト</h2>
     <div class="form-wrap">
         <p class="status">{{question.text}}</p>
         <p><button type="button" v-on:click="showAnswer = true">答えを表示</button></p>
@@ -23,14 +22,12 @@ import axios from 'axios'
         question: {},
         id: "",
         showAnswer: false,
-        test_name: "",
         index: 0
       }
     },
     created: function(){
-        this.id = this.$route.params.id
-        this.test_name = this.$route.params.name
-        axios.get("/api/active_test/" + this.id)
+        this.test_ids = this.$route.params.test_ids
+        axios.get("/api/test/", {params: {test_ids: this.test_ids}})
         .then(res =>{
             this.questions = res.data.questions
             this.question = this.questions[this.index]
@@ -40,19 +37,6 @@ import axios from 'axios'
         })
     },
     methods: {
-        onShuffle: function(){
-          axios.get("/api/active_test/" + this.id, {params: {
-            shuffle: true
-          }})
-          .then(res =>{
-            this.index = 0
-              this.questions = res.data.questions
-              this.question = this.questions[this.index]
-          })
-          .catch(er=>{
-              this.status = "fail"
-          })
-        },
         nextQuestion: function(){
             this.index = this.index + 1
             this.showAnswer = false

@@ -14,7 +14,8 @@ class Api::ActiveTestController < ApiController
   end
 
   def show
-    @test = Test.eager_load(:questions).find(params[:id])
+    @questions = Test.eager_load(:questions).find(params[:id]).questions.to_a
+    @questions = @questions.shuffle if params[:shuffle] == "true"
     render 'show', formats: 'json', handlers: 'jbuilder'
   end
 end

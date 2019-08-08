@@ -38,6 +38,7 @@ import axios from 'axios'
     },
     methods: {
         onSubmit: function(){
+            this.status = "processing..."
             axios.post("/api/question", {
                 question: this.question
             })

@@ -1,8 +1,12 @@
 <template>
   <div>
-    <p><router-link :to="{name: 'new'}">新しく作る</router-link></p>
+    <p>
+      <router-link :to="{name: 'new'}">新しく作る</router-link>|
+      <router-link :to="{name: 'test', params: {test_ids: tests}}">選択した問題でシャッフル出題</router-link>
+    </p>
     <ul>
       <li v-for="test in list">
+        <p class="check"><input type="checkbox" v-model="tests" v-bind:value="test.id"></p>
         <p class="title"><router-link :to="{name: 'show', params: {id: test.id, name: test.name}}">
           {{test.name}}({{test.count}})
         </router-link></p>
@@ -17,7 +21,8 @@ import axios from 'axios'
   export default{
     data(){
       return{
-        list: []
+        list: [],
+        tests: []
       }
     },
     created: function(){
@@ -36,8 +41,11 @@ ul{
 li{
   display: flex;
 }
+li .check{
+  width: 5%;
+}
 li .title{
-  width: 80%;
+  width: 75%;
 }
 li .add-link{
   width: 20%;

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :active_test, only: [:index, :create, :show]
     resources :question, only: [:create]
+    resources :test, only: [:index]
   
   end
 
