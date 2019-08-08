@@ -37,6 +37,7 @@ import axios from 'axios'
 <style scoped>
 ul{
   list-style: none;
+  padding-left: 0;
 }
 li{
   display: flex;
@@ -46,6 +47,7 @@ li .check{
 }
 li .title{
   width: 75%;
+  padding-left: 10px;
 }
 li .add-link{
   width: 20%;
