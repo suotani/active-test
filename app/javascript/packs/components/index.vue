@@ -11,6 +11,8 @@
           {{test.name}}({{test.count}})
         </router-link></p>
         <p class="add-link"><router-link :to="{name: 'add', params: {id: test.id, name: test.name}}">add</router-link></p>
+        <p class="check"></p>
+        <p class="last_question">{{test.last_question}}</p>
       </li>
     </ul>
   </div>
@@ -35,18 +37,27 @@ import axios from 'axios'
 </script>
 
 <style scoped>
+p{
+  margin-top: 3px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
 ul{
   list-style: none;
   padding-left: 0;
 }
 li{
   display: flex;
+  flex-wrap: wrap;
 }
 li .check{
   width: 5%;
 }
 li .title{
   width: 75%;
+  padding-left: 10px;
+}
+li .last_question{
   padding-left: 10px;
 }
 li .add-link{

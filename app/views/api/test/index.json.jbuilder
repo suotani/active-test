@@ -5,3 +5,4 @@ json.questions do
     json.answer q.answer
   end
 end
+json.count @questions.count

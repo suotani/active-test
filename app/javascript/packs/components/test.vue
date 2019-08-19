@@ -1,7 +1,7 @@
 <template>
   <div>
     <p><router-link :to="{name: 'top'}">一覧に戻る</router-link></p>
-    <h2>テスト</h2>
+    <h2>テスト<span>({{count}})</span></h2>
     <div class="form-wrap">
         <p class="status">{{question.text}}</p>
         <p><button type="button" v-on:click="showAnswer = true">答えを表示</button></p>
@@ -22,7 +22,8 @@ import axios from 'axios'
         question: {},
         id: "",
         showAnswer: false,
-        index: 0
+        index: 0,
+        count: 0
       }
     },
     created: function(){
@@ -31,6 +32,7 @@ import axios from 'axios'
         .then(res =>{
             this.questions = res.data.questions
             this.question = this.questions[this.index]
+            this.count = res.data.count
         })
         .catch(er=>{
             this.status = "fail"
@@ -48,3 +50,10 @@ import axios from 'axios'
     }
   }
 </script>
+
+<style scoped>
+  h2 span{
+    font-size: 15px;
+    font-weight: 100;
+  }
+</style>

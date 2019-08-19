@@ -1,6 +1,6 @@
 class Api::ActiveTestController < ApiController
   def index
-    @tests = Test.all
+    @tests = Test.eager_load(:questions).all
     render 'index', formats: 'json', handlers: 'jbuilder'
   end
   
