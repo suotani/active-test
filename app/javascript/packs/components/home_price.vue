@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <h1>Room Price AI in Nara</h1>
+      <h1>賃料予測AI　in Nara</h1>
       <div class="content-wrapper">
         <div class="main-content">
           <div class="form-wrap">
