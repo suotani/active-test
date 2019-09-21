@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resources :active_test, only: [:index, :create, :show]
     resources :question, only: [:create]
     resources :test, only: [:index]
+  end
   
+  namespace :ai do
+    resources :home_price, only: [:index, :new, :create]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
