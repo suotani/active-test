@@ -3,13 +3,13 @@ import sys
 import pickle
 import numpy as np
 
-with open('apaman_ai_weights.pickle', mode='rb') as fi:
+with open('lib/python/apaman_ai_weights.pickle', mode='rb') as fi:
     ws = pickle.load(fi)
 
-with open('station.pickle', mode='rb') as fi:
+with open('lib/python/station.pickle', mode='rb') as fi:
     station_to_id, id_to_station = pickle.load(fi)
     
-with open('floor_plan.pickle', mode='rb') as fi:
+with open('lib/python/floor_plan.pickle', mode='rb') as fi:
     plan_to_id, id_to_plan = pickle.load(fi)
 
 def room_flatten(room):
