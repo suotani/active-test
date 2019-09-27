@@ -44,7 +44,7 @@
           
           <h2>
             予測賃料
-            <span v-show="loading" class="loading">Now Loading...</span>
+            <span v-show="loading" class="loading">Now Thinking...</span>
             <span v-show="!loading" class=""> {{price}}</span>
           </h2>
         </div>
